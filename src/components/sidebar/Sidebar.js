@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
                 <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="Dashboard"/>
                 <Divider />
                 <Heading titolo="Interface" />
-                <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="test" />
+                <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="test" />       
                 <ItemCollapsible />
             </ul>   
         )
