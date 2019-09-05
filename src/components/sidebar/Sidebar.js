@@ -3,6 +3,7 @@ import Brand from './Brand'
 import Divider from './Divider'
 import Item from './Item'
 import Heading from './Heading'
+import ItemCollapsible from './ItemCollapsible'
 
 
 class Sidebar extends React.Component {
@@ -16,6 +17,7 @@ class Sidebar extends React.Component {
                 <Divider />
                 <Heading titolo="Interface" />
                 <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="test" />
+                <ItemCollapsible />
             </ul>   
         )
     }

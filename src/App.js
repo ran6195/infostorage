@@ -3,6 +3,7 @@ import React from 'react';
 import './fontawesome.css'
 import './App.css';
 //import 'bootstrap/dist/css/bootstrap.min.css'
+
 import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
