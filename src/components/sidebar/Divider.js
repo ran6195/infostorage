@@ -1,9 +1,17 @@
 import React from 'react'
 
 
-function Divider() {
+
+function Divider( props ) {
+
+    let mg = ''
+
+    if( props.margin )
+        mg = 'my-0'
+
+
     return (
-        <hr className="sidebar-divider my-0" />
+        <hr className={ "sidebar-divider " + mg } />
     )
 }
 
