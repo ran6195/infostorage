@@ -12,4 +12,15 @@ function App() {
   )
 }
 
+
+const sidebar = {
+  brand : {
+    titolo : 'infostorage' ,
+    icona : ''
+  } ,
+  voci : [
+    { tipo: singola , titolo: 'Prima voce'}
+  ]
+}
+
 export default App;
