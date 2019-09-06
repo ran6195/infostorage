@@ -11,7 +11,7 @@ class ItemCollapsible extends React.Component {
 
     handleClick( e ) {
         e.preventDefault()
-        console.log( e.target )
+        //console.log( e.target )
         const tag = e.target.tagName
         let el  = e.target
         let id = ''
