@@ -1,4 +1,5 @@
 import React from 'react'
+import SubItem from './SubItem'
 
 class ItemCollapsible extends React.Component {
     constructor( props ) {
@@ -10,7 +11,7 @@ class ItemCollapsible extends React.Component {
 
     handleClick( e ) {
         e.preventDefault()
-
+        console.log( e.target )
         const tag = e.target.tagName
         let el  = e.target
         let id = ''
@@ -36,17 +37,19 @@ class ItemCollapsible extends React.Component {
     }
 
     render() {
+        console.log( this.props )
         return (
             <li className="nav-item">
-                <a onClick={ this.handleClick } className="nav-link collapsed" href="index.html" data-toggle="collapse" data-target="collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a onClick={ this.handleClick } className="nav-link collapsed" href="index.html" data-toggle="collapse" data-target={ this.props.idCollapse } aria-expanded="true" aria-controls="collapseTwo">
                     <i className="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>{ this.props.titolo }</span>
                 </a>
-                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id={ this.props.idCollapse } className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header">Custom Components:</h6>
-                        <a className="collapse-item" href="buttons.html">Buttons</a>
-                        <a className="collapse-item" href="cards.html">Cards</a>
+                        <h6 className="collapse-header">{ this.props.titoloCollapse }:</h6>
+                        <SubItem href="#" titolo="Uno"/>
+                        <SubItem href="#" titolo="Due"/>
+                        <SubItem href="#" titolo="Tre"/>
                     </div>
                 </div>
             </li>

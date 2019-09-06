@@ -17,7 +17,8 @@ class Sidebar extends React.Component {
                 <Divider />
                 <Heading titolo="Interface" />
                 <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="test" />       
-                <ItemCollapsible />
+                <ItemCollapsible idCollapse="uno" titolo="Primo" titoloCollapse="Sotto menu 1" />
+                <ItemCollapsible idCollapse="due" titolo="Secondo" titoloCollapse="Sotto menu 2" />
             </ul>   
         )
     }
