@@ -19,7 +19,7 @@ const sidebar = {
     icona : ''
   } ,
   voci : [
-    { tipo: singola , titolo: 'Prima voce'}
+    { tipo: 'singola' , titolo: 'Prima voce'}
   ]
 }
 
