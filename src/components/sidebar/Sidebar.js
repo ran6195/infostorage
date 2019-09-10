@@ -25,13 +25,20 @@ class Sidebar extends React.Component {
             switch( voce.tipo ) {
                 case "singola":
                     voci.push(
-                        <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce={ voce.titolo } key={ k++ }/>
+                        <Item link="#" icona={ voce.icona } voce={ voce.titolo } key={ k++ }/>
                     )
                 break;
 
                 case "divider":
                     voci.push(
                         <Divider margin={ voce.margin } key={ k++ }/>
+                    )
+                break;
+
+
+                case "heading":
+                    voci.push(
+                        <Heading titolo={ voce.titolo } key={ k++ }/>
                     )
                 break;
 

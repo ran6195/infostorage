@@ -10,9 +10,13 @@ const sidebar = {
       icona : 'fas fa-database'
     } ,
     voci : [
-      { tipo: 'singola' , titolo: 'Prima voce'} ,
-      { tipo: 'divider' , margin: true } ,
-      { tipo: 'heading' , titolo: 'interface' } ,
+      { tipo: 'singola' , titolo: 'Prima voce' , icona: "fas fa-fw fa-tachometer-alt" } ,
+      { tipo: 'divider' , margin: false } ,
+      { tipo: 'heading' , titolo: 'Heading' } ,
+      
+      { tipo: 'singola' , titolo: 'seconda voce' , icona: "fas fa-fw fa-tachometer-alt" } ,
+      { tipo: 'singola' , titolo: 'terza voce' , icona: "fas fa-fw fa-tachometer-alt" } ,
+      { tipo: 'singola' , titolo: 'Prima voce' , icona: "fas fa-fw fa-tachometer-alt" } ,
       { tipo: 'menu' , titolo: 'components' , voci: [
         { tipo: 'heading' , titolo: 'custom components' } ,
         { tipo: 'singola' , titolo: 'Buttons'} ,
