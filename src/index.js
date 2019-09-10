@@ -4,7 +4,26 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('wrapper'));
+const sidebar = {
+    brand : {
+      titolo : 'infostorage' ,
+      icona : 'fas fa-database'
+    } ,
+    voci : [
+      { tipo: 'singola' , titolo: 'Prima voce'} ,
+      { tipo: 'divider' } ,
+      { tipo: 'heading' , titolo: 'interface' } ,
+      { tipo: 'menu' , titolo: 'components' , voci: [
+        { tipo: 'heading' , titolo: 'custom components' } ,
+        { tipo: 'singola' , titolo: 'Buttons'} ,
+        { tipo: 'singola' , titolo: 'Cards'}
+      ] } 
+    ]
+  }
+
+
+
+ReactDOM.render(<App sidebar={ sidebar } />, document.getElementById('wrapper'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

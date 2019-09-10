@@ -6,17 +6,21 @@ import './App.css';
 
 import Sidebar from './components/sidebar/Sidebar'
 
-function App() {
-  return (
+class App extends React.Component {
+
+  render() {
+
+    return (
       <Sidebar />
-  )
+    )
+  }
 }
 
 
 const sidebar = {
   brand : {
     titolo : 'infostorage' ,
-    icona : ''
+    icona : 'fas fa-database'
   } ,
   voci : [
     { tipo: 'singola' , titolo: 'Prima voce'} ,
