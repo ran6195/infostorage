@@ -4,21 +4,49 @@ import Divider from './Divider'
 import Item from './Item'
 import Heading from './Heading'
 import ItemCollapsible from './ItemCollapsible'
+import _ from 'lodash'
 
 
 class Sidebar extends React.Component {
 
+
+
     render() {
+
+        let test1 = <Divider margin="true" key="0"/>
+        let test2 = <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="Dashboard" key="1"/>
+        let testArray = [ test1 , test2 ]
+
+        let voci = []
+        let k = 0
+
+        _.each( this.props.voci , voce => {
+            console.log( voce )
+            switch( voce.tipo ) {
+                case "singola":
+                    voci.push(
+                        <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce={ voce.titolo } key={ k++ }/>
+                    )
+                break;
+
+                case "divider":
+                    voci.push(
+                        <Divider margin={ voce.margin } key={ k++ }/>
+                    )
+                break;
+
+                default:
+            }
+        })
+
+        console.log( voci )
+
         return (
             <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                <Brand brand="infostorage" />
-                <Divider margin="true" />
-                <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="Dashboard"/>
-                <Divider />
-                <Heading titolo="Interface" />
-                <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="test" />       
-                <ItemCollapsible idCollapse="uno" titolo="Primo" titoloCollapse="Sotto menu 1" />
-                <ItemCollapsible idCollapse="due" titolo="Secondo" titoloCollapse="Sotto menu 2" />
+                <Brand titolo={ this.props.brand.titolo } icona={ this.props.brand.icona }/>
+                {
+                    _.each( voci , v => v )
+                }
             </ul>   
         )
     }

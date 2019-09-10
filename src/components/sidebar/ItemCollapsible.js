@@ -37,7 +37,7 @@ class ItemCollapsible extends React.Component {
     }
 
     render() {
-        console.log( this.props )
+        //console.log( this.props )
         return (
             <li className="nav-item">
                 <a onClick={ this.handleClick } className="nav-link collapsed" href="index.html" data-toggle="collapse" data-target={ this.props.idCollapse } aria-expanded="true" aria-controls="collapseTwo">

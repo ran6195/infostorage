@@ -11,7 +11,7 @@ const sidebar = {
     } ,
     voci : [
       { tipo: 'singola' , titolo: 'Prima voce'} ,
-      { tipo: 'divider' } ,
+      { tipo: 'divider' , margin: true } ,
       { tipo: 'heading' , titolo: 'interface' } ,
       { tipo: 'menu' , titolo: 'components' , voci: [
         { tipo: 'heading' , titolo: 'custom components' } ,
