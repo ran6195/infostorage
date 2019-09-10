@@ -13,9 +13,9 @@ class Sidebar extends React.Component {
 
     render() {
 
-        let test1 = <Divider margin="true" key="0"/>
+        /* let test1 = <Divider margin="true" key="0"/>
         let test2 = <Item link="#" icona="fas fa-fw fa-tachometer-alt" voce="Dashboard" key="1"/>
-        let testArray = [ test1 , test2 ]
+        //let testArray = [ test1 , test2 ] */
 
         let voci = []
         let k = 0
@@ -40,6 +40,19 @@ class Sidebar extends React.Component {
                     voci.push(
                         <Heading titolo={ voce.titolo } key={ k++ }/>
                     )
+                break;
+
+                case "menu":
+                        voci.push(
+                            <ItemCollapsible 
+                                idCollapse={ "id" + k } 
+                                titolo={ voce.titolo } 
+                                titoloCollapse={ voce.titoloSubMenu } 
+                                icona={ voce.icona }
+                                voci={ voce.voci }
+                                key={ k++ }     
+                            />
+                        )
                 break;
 
                 default:

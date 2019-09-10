@@ -17,10 +17,18 @@ const sidebar = {
       { tipo: 'singola' , titolo: 'seconda voce' , icona: "fas fa-fw fa-tachometer-alt" } ,
       { tipo: 'singola' , titolo: 'terza voce' , icona: "fas fa-fw fa-tachometer-alt" } ,
       { tipo: 'singola' , titolo: 'Prima voce' , icona: "fas fa-fw fa-tachometer-alt" } ,
-      { tipo: 'menu' , titolo: 'components' , voci: [
-        { tipo: 'heading' , titolo: 'custom components' } ,
-        { tipo: 'singola' , titolo: 'Buttons'} ,
-        { tipo: 'singola' , titolo: 'Cards'}
+      { 
+        tipo: 'menu' , 
+        titolo: 'Components' ,  
+        titoloSubMenu: "Custom components" , 
+        icona : "fas fa-fw fa-cog" ,
+        voci: [
+          { tipo : 'header' , titolo : "login screens" } ,
+          { tipo: 'singola' , titolo: 'Buttons'} ,
+          { tipo: 'singola' , titolo: 'Cards'} ,
+          { tipo : 'header' , titolo : "Other pages" } ,
+          { tipo: 'singola' , titolo: 'Buttons 2'} ,
+          { tipo: 'singola' , titolo: 'Cards 2'}
       ] } 
     ]
   }

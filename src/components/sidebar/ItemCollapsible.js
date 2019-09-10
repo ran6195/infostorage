@@ -1,5 +1,7 @@
 import React from 'react'
 import SubItem from './SubItem'
+import _ from 'lodash'
+import SubMenuHeader from './SubMenuHeader'
 
 class ItemCollapsible extends React.Component {
     constructor( props ) {
@@ -7,6 +9,8 @@ class ItemCollapsible extends React.Component {
 
         this.handleClick = this.handleClick.bind( this )
     }
+
+
 
 
     handleClick( e ) {
@@ -37,19 +41,41 @@ class ItemCollapsible extends React.Component {
     }
 
     render() {
-        //console.log( this.props )
+        /**
+         * costruzione delle voci del sotto menu
+         */
+
+        let subMenu = []
+        let k = 0
+        _.each( this.props.voci , voce => {
+            switch( voce.tipo ) {
+                case "singola":
+                    subMenu.push (
+                        <SubItem href="#" titolo={ voce.titolo } key={ k++ } />
+                    )
+                break;
+                
+                case "header":
+                    subMenu.push (
+                        <SubMenuHeader titolo={ voce.titolo } key={ k++ } />
+                    )
+                break;
+
+                default:
+            }
+
+        })
+
+
         return (
             <li className="nav-item">
                 <a onClick={ this.handleClick } className="nav-link collapsed" href="index.html" data-toggle="collapse" data-target={ this.props.idCollapse } aria-expanded="true" aria-controls="collapseTwo">
-                    <i className="fas fa-fw fa-cog"></i>
+                    <i className={ this.props.icona }></i>
                     <span>{ this.props.titolo }</span>
                 </a>
                 <div id={ this.props.idCollapse } className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header">{ this.props.titoloCollapse }:</h6>
-                        <SubItem href="#" titolo="Uno"/>
-                        <SubItem href="#" titolo="Due"/>
-                        <SubItem href="#" titolo="Tre"/>
+                        { subMenu }
                     </div>
                 </div>
             </li>
