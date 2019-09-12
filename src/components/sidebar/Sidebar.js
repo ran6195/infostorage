@@ -21,7 +21,7 @@ class Sidebar extends React.Component {
         let k = 0
 
         _.each( this.props.voci , voce => {
-            console.log( voce )
+            //console.log( voce )
             switch( voce.tipo ) {
                 case "singola":
                     voci.push(
@@ -59,7 +59,7 @@ class Sidebar extends React.Component {
             }
         })
 
-        console.log( voci )
+        //console.log( voci )
 
         return (
             <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">

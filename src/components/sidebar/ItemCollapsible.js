@@ -13,11 +13,28 @@ class ItemCollapsible extends React.Component {
 
   }
 
+  chiuiTutto() {
+    _.each( document.getElementsByClassName( 'sotto-menu' ) , el => {
+      if ( ! el.classList.contains( 'collapsed' ) ) {
+        el.nextSibling.classList.remove( 'show' )
+        el.classList.add( 'collapsed' );
+      } 
+        
+    });
+  }
+
   handleClick(e) {
     e.preventDefault();
+    this.chiuiTutto();
+    ( this.state.collapsed === 'collapsed' ) ? this.setState({ collapsed : '' } ) : this.setState({ collapsed : 'collapsed' } ); 
+    ( this.state.show === '' ) ? this.setState({ show : 'show' }) : this.setState({ show : '' });
 
-      ( this.state.collapsed === 'collapsed' ) ? this.setState({ collapsed : '' }) : this.setState({ collapsed : 'collapsed' }); 
-      ( this.state.show === '' ) ? this.setState({ show : 'show' }) : this.setState({ show : '' });
+    
+
+    
+
+      //check se ci sono altri menu aperti e nel caso li chiude.
+
   }
 
   render() {
@@ -45,7 +62,7 @@ class ItemCollapsible extends React.Component {
       <li className="nav-item">
         <a
           onClick={this.handleClick}
-          className={ "nav-link " + this.state.collapsed }
+          className={ "sotto-menu nav-link " + this.state.collapsed }
           href="index.html"
           data-toggle="collapse"
           data-target={this.props.idCollapse}
@@ -59,7 +76,7 @@ class ItemCollapsible extends React.Component {
           className= { "collapse " + this.state.show }
           aria-labelledby="headingTwo"
           data-parent="#accordionSidebar">
-          <div className="bg-white py-2 collapse-inner rounded">{subMenu}</div>
+          <div className="bg-white py-2 collapse-inner rounded">{ subMenu }</div>
         </div>
       </li>
     );
