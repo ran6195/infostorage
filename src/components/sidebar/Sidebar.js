@@ -7,8 +7,8 @@ import ItemCollapsible from './ItemCollapsible'
 import _ from 'lodash'
 
 
-class Sidebar extends React.Component {
 
+class Sidebar extends React.Component {
 
 
     render() {
