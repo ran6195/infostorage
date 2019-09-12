@@ -7,37 +7,17 @@ class ItemCollapsible extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { collapsed : 'collapsed' , show: '' }
+
     this.handleClick = this.handleClick.bind(this);
+
   }
 
   handleClick(e) {
     e.preventDefault();
-    //console.log( e.target )
-    const tag = e.target.tagName;
-    let el = e.target;
-    let id = "";
 
-    switch (tag) {
-      case "A":
-        id = el.dataset.target;
-        break;
-
-      case "I":
-      case "SPAN":
-        id = el.parentElement.dataset.target;
-        el = el.parentElement;
-        break;
-
-      default:
-    }
-
-    document.getElementById(id).classList.contains("show")
-      ? document.getElementById(id).classList.remove("show")
-      : document.getElementById(id).classList.add("show");
-
-    el.classList.contains("collapsed")
-      ? el.classList.remove("collapsed")
-      : el.classList.add("collapsed");
+      ( this.state.collapsed === 'collapsed' ) ? this.setState({ collapsed : '' }) : this.setState({ collapsed : 'collapsed' }); 
+      ( this.state.show === '' ) ? this.setState({ show : 'show' }) : this.setState({ show : '' });
   }
 
   render() {
@@ -65,7 +45,7 @@ class ItemCollapsible extends React.Component {
       <li className="nav-item">
         <a
           onClick={this.handleClick}
-          className="nav-link collapsed"
+          className={ "nav-link " + this.state.collapsed }
           href="index.html"
           data-toggle="collapse"
           data-target={this.props.idCollapse}
@@ -76,7 +56,7 @@ class ItemCollapsible extends React.Component {
         </a>
         <div
           id={this.props.idCollapse}
-          className="collapse"
+          className= { "collapse " + this.state.show }
           aria-labelledby="headingTwo"
           data-parent="#accordionSidebar">
           <div className="bg-white py-2 collapse-inner rounded">{subMenu}</div>

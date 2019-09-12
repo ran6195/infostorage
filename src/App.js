@@ -8,7 +8,6 @@ import Sidebar from './components/sidebar/Sidebar'
 
 class App extends React.Component {
 
-
   render() {
 
     return (
