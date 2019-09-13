@@ -12,8 +12,10 @@ class App extends React.Component {
   render() {
 
     return (
-      <Sidebar brand={ this.props.sidebar.brand } voci={ this.props.sidebar.voci }/>
-
+      <div className="wrapper">
+        <Sidebar brand={ this.props.sidebar.brand } voci={ this.props.sidebar.voci }/>
+        <ContentWrapper />
+       </div>
     )
   }
 }
