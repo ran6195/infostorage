@@ -5,6 +5,7 @@ import './App.css';
 //import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Sidebar from './components/sidebar/Sidebar'
+import ContentWrapper from './components/content/ContentWrapper';
 
 class App extends React.Component {
 
@@ -12,6 +13,7 @@ class App extends React.Component {
 
     return (
       <Sidebar brand={ this.props.sidebar.brand } voci={ this.props.sidebar.voci }/>
+
     )
   }
 }
