@@ -65,7 +65,7 @@ class Sidebar extends React.Component {
         return (
          
                 <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                    <Brand titolo={ this.props.brand.titolo } icona={ this.props.brand.icona }/>
+                    <Brand link={ this.props.brand.link } titolo={ this.props.brand.titolo } icona={ this.props.brand.icona }/>
                     {
                         _.each( voci , v => v )
                     }

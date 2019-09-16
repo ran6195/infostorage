@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Brand( props ) {
     return (
-        <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <Link to={ props.link } className="sidebar-brand d-flex align-items-center justify-content-center">
             <div className="sidebar-brand-icon">
                 <i className={ props.icona }></i>
             </div>
             <div className="sidebar-brand-text mx-3">{ props.titolo }</div>
-        </a>
+        </Link>
     )
 }
 
