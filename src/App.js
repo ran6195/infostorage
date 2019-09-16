@@ -12,7 +12,7 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className="wrapper">
+      <div className="wrapper" id="wrapper">
         <Sidebar brand={ this.props.sidebar.brand } voci={ this.props.sidebar.voci }/>
         <ContentWrapper />
        </div>
