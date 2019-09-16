@@ -1,6 +1,6 @@
 import React from 'react';
 import Topbar from './Topbar'
-import Container from '../Conatiner';
+import Container from '../Container';
 
 export default class Content extends React.Component {
     render() {

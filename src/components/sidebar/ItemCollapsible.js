@@ -34,7 +34,7 @@ class ItemCollapsible extends React.Component {
           id = el.dataset.target;
           break;
   
-        case "I":
+        case "I": 
         case "SPAN":
           id = el.parentElement.dataset.target;
           el = el.parentElement;
