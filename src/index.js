@@ -13,7 +13,8 @@ const sidebar = {
     {
       tipo: "singola",
       titolo: "Prima voce",
-      icona: "fas fa-fw fa-tachometer-alt"
+      icona: "fas fa-fw fa-tachometer-alt" ,
+      link : "/"
     },
     { tipo: "divider", margin: false },
     { tipo: "heading", titolo: "Heading" },
@@ -21,12 +22,14 @@ const sidebar = {
     {
       tipo: "singola",
       titolo: "seconda voce",
-      icona: "fas fa-fw fa-tachometer-alt"
+      icona: "fas fa-fw fa-tachometer-alt" ,
+      link : "/pagina2"
     },
     {
       tipo: "singola",
       titolo: "terza voce",
-      icona: "fas fa-fw fa-tachometer-alt"
+      icona: "fas fa-fw fa-tachometer-alt" ,
+      link : "/blank"
     },
     {
       tipo: "singola",
