@@ -31,11 +31,7 @@ const sidebar = {
       icona: "fas fa-fw fa-tachometer-alt" ,
       link : "/blank"
     },
-    {
-      tipo: "singola",
-      titolo: "Prima voce",
-      icona: "fas fa-fw fa-tachometer-alt"
-    },
+
     {
       tipo: "menu",
       titolo: "Components",
