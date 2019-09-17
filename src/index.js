@@ -7,32 +7,12 @@ import * as serviceWorker from "./serviceWorker";
 const sidebar = {
   brand: {
     titolo: "infostorage",
-    icona: "fas fa-database"
+    icona: "fas fa-database" ,
+    link : "/infostorage"
   },
   voci: [
     {
       tipo: "singola",
-      titolo: "Prima voce",
-      icona: "fas fa-fw fa-tachometer-alt"
-    }, {
-      tipo: "divider",
-      margin: false
-    }, {
-      tipo: "heading",
-      titolo: "Heading"
-    }, {
-      tipo: "singola",
-      titolo: "seconda voce",
-      icona: "fas fa-fw fa-tachometer-alt"
-    }, {
-      tipo: "singola",
-      titolo: "terza voce",
-      icona: "fas fa-fw fa-tachometer-alt"
-    }, {
-      tipo: "singola",
-      titolo: "Prima voce",
-      icona: "fas fa-fw fa-tachometer-alt"
-    }, {
       tipo: "menu",
       titolo: "Components",
       titoloSubMenu: "Custom components",

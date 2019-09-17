@@ -25,7 +25,8 @@ class Sidebar extends React.Component {
             switch( voce.tipo ) {
                 case "singola":
                     voci.push(
-                        <Item link="#" icona={ voce.icona } voce={ voce.titolo } key={ k++ }/>
+                        <Item link={ voce.link } icona={ voce.icona } voce={ voce.titolo } key={ k++ }/>
+                        //<Link to={ voce.titolo }></Link>
                     )
                 break;
 
@@ -62,12 +63,14 @@ class Sidebar extends React.Component {
         //console.log( voci )
 
         return (
-            <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                <Brand titolo={ this.props.brand.titolo } icona={ this.props.brand.icona }/>
-                {
-                    _.each( voci , v => v )
-                }
-            </ul>   
+         
+                <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                    <Brand link={ this.props.brand.link } titolo={ this.props.brand.titolo } icona={ this.props.brand.icona }/>
+                    {
+                        _.each( voci , v => v )
+                    }
+                </ul>   
+            
         )
     }
 
