@@ -93,7 +93,8 @@ const sidebar = {
         },
         {
           tipo: "singola",
-          titolo: "Buttons"
+          titolo: "Buttons",
+          link: "/"
         },
         {
           tipo: "singola",

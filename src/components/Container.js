@@ -60,7 +60,7 @@ function Elenco() {
 function Dropshipping() {
   return (
     <div className="container-fluid">
-      <h1 className="h3 mb-4 text-gray-800">Droposhipping</h1>
+      <h1 className="h3 mb-4 text-gray-800">Dropshipping</h1>
     </div>
   );
 }
@@ -77,8 +77,8 @@ export default class Container extends React.Component {
   render() {
     return (
       <div>
-        <Route path="/infostorage" component={Infostorage}></Route>
         <Route path="/" exact component={Slash}></Route>
+        <Route path="/infostorage" component={Infostorage}></Route>
         <Route path="/blank" component={Blank}></Route>
         <Route path="/pagina2" component={Pagina}></Route>
         <Route path="/categorie" component={Categorie}></Route>

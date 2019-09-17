@@ -3,44 +3,37 @@ import SubItem from "./SubItem";
 import _ from "lodash";
 import SubMenuHeader from "./SubMenuHeader";
 
-
 class ItemCollapsible extends React.Component {
   constructor(props) {
-    super( props );
+    super(props);
     this.handleClick = this.handleClick.bind(this);
-
   }
-
 
   chiudiTutto() {
-    _.each( document.getElementsByClassName( 'sotto-menu' ) , el => {
-      if ( ! el.classList.contains( 'collapsed' ) )
-        el.classList.add( 'collapsed' )
+    _.each(document.getElementsByClassName("sotto-menu"), el => {
+      if (!el.classList.contains("collapsed")) el.classList.add("collapsed");
     });
 
-    _.each( document.getElementsByClassName( 'show' ) , el => {
-      el.classList.remove( 'show' )
+    _.each(document.getElementsByClassName("show"), el => {
+      el.classList.remove("show");
     });
-
-
   }
 
-  apriQuesto( el ) {
+  apriQuesto(el) {
+    let id = "";
 
-    let id = '';
+    switch (el.tagName) {
+      case "A":
+        id = el.dataset.target;
+        break;
 
-    switch( el.tagName ) {
-        case "A":
-          id = el.dataset.target;
-          break;
-  
-        case "I": 
-        case "SPAN":
-          id = el.parentElement.dataset.target;
-          el = el.parentElement;
-          break;
-  
-        default:
+      case "I":
+      case "SPAN":
+        id = el.parentElement.dataset.target;
+        el = el.parentElement;
+        break;
+
+      default:
     }
 
     document.getElementById(id).classList.contains("show")
@@ -50,13 +43,10 @@ class ItemCollapsible extends React.Component {
     el.classList.contains("collapsed")
       ? el.classList.remove("collapsed")
       : el.classList.add("collapsed");
-
-
   }
 
-  eAperto( el ) {
-
-    switch( el.tagName ) {
+  eAperto(el) {
+    switch (el.tagName) {
       case "A":
         //id = el.dataset.target;
         break;
@@ -70,18 +60,17 @@ class ItemCollapsible extends React.Component {
       default:
     }
 
-    return( ! el.classList.contains( 'collapsed' ) )
+    return !el.classList.contains("collapsed");
   }
 
   handleClick(e) {
     e.preventDefault();
-    if ( this.eAperto( e.target ) ) {
+    if (this.eAperto(e.target)) {
       this.chiudiTutto();
     } else {
       this.chiudiTutto();
-      this.apriQuesto( e.target )
+      this.apriQuesto(e.target);
     }
-
   }
 
   render() {
@@ -94,7 +83,9 @@ class ItemCollapsible extends React.Component {
     _.each(this.props.voci, voce => {
       switch (voce.tipo) {
         case "singola":
-          subMenu.push(<SubItem href="#" titolo={voce.titolo} key={k++} />);
+          subMenu.push(
+            <SubItem link={voce.link} titolo={voce.titolo} key={k++} />
+          );
           break;
 
         case "header":
@@ -109,7 +100,7 @@ class ItemCollapsible extends React.Component {
       <li className="nav-item">
         <a
           onClick={this.handleClick}
-          className={ "sotto-menu nav-link collapsed" }
+          className={"sotto-menu nav-link collapsed"}
           href="index.html"
           data-toggle="collapse"
           data-target={this.props.idCollapse}
@@ -120,16 +111,14 @@ class ItemCollapsible extends React.Component {
         </a>
         <div
           id={this.props.idCollapse}
-          className= { "collapse" }
+          className={"collapse"}
           aria-labelledby="headingTwo"
           data-parent="#accordionSidebar">
-          <div className="bg-white py-2 collapse-inner rounded">{ subMenu }</div>
+          <div className="bg-white py-2 collapse-inner rounded">{subMenu}</div>
         </div>
       </li>
     );
   }
 }
-
-
 
 export default ItemCollapsible;
