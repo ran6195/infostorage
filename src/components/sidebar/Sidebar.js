@@ -10,6 +10,19 @@ import _ from 'lodash'
 
 class Sidebar extends React.Component {
 
+    constructor( props ) {
+        super( props )
+
+        this.handleSidebarToggle = this.handleSidebarToggle.bind( this )
+    }
+
+    handleSidebarToggle() {
+        let b = document.getElementById( 'page-top' );
+        let s = document.getElementById( 'accordionSidebar' );
+        b.classList.contains( 'sidebar-toggled' ) ? b.classList.remove( 'sidebar-toggled' ) : b.classList.add( 'sidebar-toggled' );
+        s.classList.contains( 'toggled' ) ? s.classList.remove( 'toggled' ) : s.classList.add( 'toggled' );
+    }
+
 
     render() {
 
@@ -69,6 +82,10 @@ class Sidebar extends React.Component {
                     {
                         _.each( voci , v => v )
                     }
+
+                    <div className="text-center d-none d-md-inline">
+                        <button className="rounded-circle border-0" id="sidebarToggle" onClick={ this.handleSidebarToggle } ></button>
+                    </div>
                 </ul>   
             
         )

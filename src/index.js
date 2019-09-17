@@ -121,7 +121,7 @@ const sidebar = {
   ]
 };
 
-ReactDOM.render(<App sidebar={sidebar} />, document.getElementById("page-top"));
+ReactDOM.render(<App sidebar={sidebar} />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
