@@ -7,66 +7,95 @@ import * as serviceWorker from "./serviceWorker";
 const sidebar = {
   brand: {
     titolo: "infostorage",
-    icona: "fas fa-database" ,
-    link : "/infostorage"
+    icona: "fas fa-database",
+    link: "/infostorage"
   },
   voci: [
     {
       tipo: "singola",
-      titolo: "Home",
-      icona: "fas fa-fw fa-tachometer-alt" ,
-      link : "/"
-    },
-    { tipo: "divider", margin: false },
-    { tipo: "heading", titolo: "Heading" },
-
-    {
+      titolo: "Dashboard",
+      icona: "fas fa-fw fa-tachometer-alt",
+      link: "/"
+    }, {
+      tipo: "divider",
+      margin: false
+    }, {
+      tipo: "heading",
+      titolo: "Heading"
+    }, {
       tipo: "singola",
       titolo: "Pagina 2",
-      icona: "fas fa-fw fa-tachometer-alt" ,
-      link : "/pagina2"
-    },
-    {
+      icona: "fas fa-fw fa-tachometer-alt",
+      link: "/pagina2"
+    }, {
       tipo: "singola",
       titolo: "Blank",
-      icona: "fas fa-fw fa-tachometer-alt" ,
-      link : "/blank"
-    },
-
-    {
+      icona: "fas fa-fw fa-tachometer-alt",
+      link: "/blank"
+    }, {
       tipo: "menu",
-      titolo: "Components",
+      titolo: "Articoli",
       titoloSubMenu: "Custom components",
-      icona: "fas fa-fw fa-cog",
-      chiuso: true,
-      voci: [
-        { tipo: "header", titolo: "login screens" },
-        { tipo: "singola", titolo: "Buttons" },
-        { tipo: "singola", titolo: "Cards" },
-        { tipo: "header", titolo: "Other pages" },
-        { tipo: "singola", titolo: "Buttons 2" },
-        { tipo: "singola", titolo: "Cards 2" }
-      ]
-    },
-    {
-      tipo: "menu",
-      titolo: "Menu di prova",
-      titoloSubMenu: "Sotto menu di prva",
       icona: "fas fa-fw fa-database",
       chiuso: true,
       voci: [
-        { tipo: "header", titolo: "login screens" },
-        { tipo: "singola", titolo: "Buttons" },
-        { tipo: "singola", titolo: "Cards" },
-        { tipo: "header", titolo: "Other pages" },
-        { tipo: "singola", titolo: "Buttons 2" },
-        { tipo: "singola", titolo: "Cards 2" }
+        {
+          tipo: "header",
+          titolo: "Anagrafica"
+        }, {
+          tipo: "singola",
+          titolo: "Categorie"
+        }, {
+          tipo: "singola",
+          titolo: "Listini"
+        }, {
+          tipo: "header",
+          titolo: "Gestione"
+        }, {
+          tipo: "singola",
+          titolo: "Elenco"
+        }, {
+          tipo: "singola",
+          titolo: "Dropshipping"
+        }, {
+          tipo: "singola",
+          titolo: "Comparatore"
+        }
+      ]
+    }, {
+      tipo: "menu",
+      titolo: "Ordini",
+      titoloSubMenu: "Sotto menu di prva",
+      icona: "fas fa-fw fa-edit",
+      chiuso: true,
+      voci: [
+        {
+          tipo: "header",
+          titolo: "login screens"
+        }, {
+          tipo: "singola",
+          titolo: "Buttons"
+        }, {
+          tipo: "singola",
+          titolo: "Cards"
+        }, {
+          tipo: "header",
+          titolo: "Other pages"
+        }, {
+          tipo: "singola",
+          titolo: "Buttons 2"
+        }, {
+          tipo: "singola",
+          titolo: "Cards 2"
+        }
       ]
     }
   ]
 };
 
-ReactDOM.render(<App sidebar={sidebar} />, document.getElementById("page-top"));
+ReactDOM.render(< App sidebar = {
+  sidebar
+} />, document.getElementById("page-top"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
