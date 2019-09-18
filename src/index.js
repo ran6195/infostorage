@@ -121,7 +121,9 @@ const sidebar = {
   ]
 };
 
-ReactDOM.render(<App sidebar={sidebar} />, document.getElementById("root"));
+let logged_in = false;
+
+ReactDOM.render(<App sidebar={sidebar} logged_in={ logged_in }/>, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
