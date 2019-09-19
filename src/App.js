@@ -4,6 +4,7 @@ import './fontawesome.css'
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 //import 'bootstrap/dist/css/bootstrap.min.css'
+import Axios from 'axios'
 
 import Sidebar from './components/sidebar/Sidebar'
 import ContentWrapper from './components/content/ContentWrapper';
@@ -11,7 +12,8 @@ import Login from './components/Login';
 
 
 const MyContext = React.createContext({
-  logged_in : undefined 
+    user : '' ,
+    token : ''
 })
 
 
@@ -21,7 +23,6 @@ class App extends React.Component {
 
   constructor( props ) {
     super( props )
-    this.state = { logged_in : false }
     this.handleLogin = this.handleLogin.bind( this )
   }
 
@@ -30,7 +31,18 @@ class App extends React.Component {
     this.setState({ logged_in : true })
   }
 
+  componentDidMount() {
+    Axios.post( 'http:///www.opsboard.cloud/apilaravel/public/login' , {
+
+    })
+  }
+
   render() {
+
+    let token = MyContext.Provider.token;
+
+
+    console.log( token )
     if( this.state.logged_in ) {
       return (
         <MyContext.Provider value={ this.state }>
