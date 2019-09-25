@@ -32,10 +32,33 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    Axios.post( 'http:///www.opsboard.cloud/apilaravel/public/login' , {
-
+    Axios.defaults.headers.post['Content-Type'] = 'text/json';
+   
+    Axios.post( 'https:///api.opsboard.cloud/login' , {
+      user: 'toniog@gmail.com' ,
+      pass : 'pippo'
     })
+    .then( res => console.log( res.data ) )
+    .catch( err => console.log( err ) )
   }
+
+/*   componentDidMount() {
+
+    let myHeaders = new Headers({
+      "Content-Type" : "text/html; charset=UTF-8"
+      }     
+    );
+
+    let myInit = { method: 'POST',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' };
+    fetch( 'https://api.opsboard.cloud/login' , myInit , {
+      user: 'toniog@gmail.com' ,
+      pass: 'pippo'
+    })
+
+   } */
 
   render() {
 
@@ -43,7 +66,7 @@ class App extends React.Component {
 
 
     console.log( token )
-    if( this.state.logged_in ) {
+    if( false ) {
       return (
         <MyContext.Provider value={ this.state }>
         <div id="wrapper">
