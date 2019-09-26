@@ -32,7 +32,7 @@ class Login extends React.Component {
 
         if( this.state.logged_in ) {
             return (
-                <App logged_in={ this.state.logged_in } sidebar={ this.props.sidebar }/>
+                <App logged_in={ this.state.logged_in } sidebar={ this.props.sidebar } />
             )
         } else {
 
