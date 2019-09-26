@@ -20,6 +20,7 @@ class Login extends React.Component {
         }).then( res => {
             if( res.data.token !== undefined ) {
                 this.setState({ logged_in : true })
+                window.sessionStorage.setItem('token', res.data.token );
             } else {
                 console.log( res.data.errore )
             }
