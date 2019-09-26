@@ -123,6 +123,12 @@ const sidebar = {
 
 let logged_in = false;
 
+console.log( window.sessionStorage )
+
+if( window.sessionStorage.length !== 0 ) {
+  logged_in = true
+}
+
 ReactDOM.render(<App sidebar={sidebar} logged_in={ logged_in }/>, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
