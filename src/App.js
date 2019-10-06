@@ -9,6 +9,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from './components/sidebar/Sidebar'
 import ContentWrapper from './components/content/ContentWrapper';
 import Login from './components/Login';
+import LogoutModal from './components/content/LogoutModal';
 
 
 const MyContext = React.createContext({
@@ -31,8 +32,11 @@ class App extends React.Component {
               <Sidebar brand={ this.props.sidebar.brand } voci={ this.props.sidebar.voci }/>
               <ContentWrapper />
             </Router>
-          </div>
+            <LogoutModal />
+        </div>
+          
         </MyContext.Provider>
+        
       )
     } else {
       

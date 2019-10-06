@@ -1,4 +1,5 @@
 import React from 'react';
+import Userinformation from '../topbar/Userinformation'
 
 
 export default class Topbar extends React.Component {
@@ -19,6 +20,11 @@ export default class Topbar extends React.Component {
                         </div>
                     </div>
                 </form>
+
+                <ul className="navbar-nav ml-auto">
+                <Userinformation />
+                </ul>
+
             </nav>
         )
     }
