@@ -1,7 +1,6 @@
 import React from 'react'
 
 
-
 export default class UserInformation extends React.Component {
 
     constructor( props ) {
@@ -12,6 +11,7 @@ export default class UserInformation extends React.Component {
         this.handleClickOutside = this.handleClickOutside.bind( this )
         this.handleMenu = this.handleMenu.bind( this )
         this.handleLogout = this.handleLogout.bind( this )
+        this.modalOpen = this.modalOpen.bind( this )
     }
 
     componentDidMount() {
@@ -45,6 +45,20 @@ export default class UserInformation extends React.Component {
     
     }
 
+    modalOpen( event ) {
+        let modal = document.getElementById( event.target.dataset.target.substring( 1 ) )
+        let body = document.getElementsByTagName( 'body' )[ 0 ]
+        if( body.classList.contains( 'modal-open' ) ) {
+            body.classList.remove( 'modal-open' )
+            body.style.paddingRight = ""
+        } else {
+            body.classList.add( 'modal-open' )
+            body.style.paddingRight = "15px"
+        }
+        
+        //modal.style.display = 'block'
+    }
+
     handleLogout() {
         window.sessionStorage.removeItem( 'token' )
     }
@@ -71,7 +85,7 @@ export default class UserInformation extends React.Component {
                 Activity Log
               </a>
               <div className="dropdown-divider"></div>
-              <a id="logout-modal" className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+              <a onClick={ this.modalOpen } id="logout-modal" className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
               </a>
