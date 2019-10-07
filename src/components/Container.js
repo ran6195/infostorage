@@ -1,10 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { Button } from 'react-bootstrap'
 
 function Slash() {
   return (
     <div className="container-fluid">
       <h1 className="h3 mb-4 text-gray-800">Home</h1>
+      <Button href="#" block >Ciao</Button>
     </div>
   );
 }
