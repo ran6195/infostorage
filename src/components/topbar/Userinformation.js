@@ -1,96 +1,93 @@
 import React from 'react'
+import { Dropdown , FormControl } from 'react-bootstrap'
+
+
+
+class CustomToggle extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+
+    this.props.onClick(e);
+  }
+
+  render() {
+    return (
+      <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+	      <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+      </a>
+    );
+  }
+}
+
+class CustomMenu extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleChange = this.handleChange.bind(this);
+
+    this.state = { value: '' };
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value.toLowerCase().trim() });
+  }
+
+  render() {
+    const {
+      children,
+      style,
+      className,
+      'aria-labelledby': labeledBy,
+    } = this.props;
+
+    const { value } = this.state;
+
+    return (
+      <div style={style} className={className} aria-labelledby={labeledBy}>
+        <FormControl
+          autoFocus
+          className="mx-3 my-2 w-auto"
+          placeholder="Type to filter..."
+          onChange={this.handleChange}
+          value={value}
+        />
+        <ul className="list-unstyled">
+          {React.Children.toArray(children).filter(
+            child =>
+              !value || child.props.children.toLowerCase().startsWith(value),
+          )}
+        </ul>
+      </div>
+    );
+  }
+}
 
 
 export default class UserInformation extends React.Component {
 
-    constructor( props ) {
-        super( props )
-
-        this.state = { menu : 'chiuso' }
-
-        this.handleClickOutside = this.handleClickOutside.bind( this )
-        this.handleMenu = this.handleMenu.bind( this )
-        this.handleLogout = this.handleLogout.bind( this )
-        this.modalOpen = this.modalOpen.bind( this )
-    }
-
-    componentDidMount() {
-        document.addEventListener('mousedown', this.handleClickOutside);
-      }
-    
-    componentWillUnmount() {
-        document.removeEventListener('mousedown', this.handleClickOutside);
-    }
-
-    handleClickOutside(event) {
-        console.log( event.target )
-        if( event.target.id !== 'userDropdown' && this.state.menu === 'aperto' && event.target.id !== 'logout-modal' )
-            this.handleMenu()
-      }
-
-    handleMenu() {
-
-        let lC = document.getElementById( 'menu-user-info' ).classList
-        let dC = document.getElementById( 'div-user-info' ).classList
-
-        if( lC.contains( 'show' ) ) {
-            lC.remove( 'show' );
-            dC.remove( 'show' );
-            this.setState({ menu : 'chiuso'})
-        } else {
-            this.setState({ menu : 'aperto' })
-            lC.add( 'show' );
-            dC.add( 'show' );
-        }
-    
-    }
-
-    modalOpen( event ) {
-        let modal = document.getElementById( event.target.dataset.target.substring( 1 ) )
-        let body = document.getElementsByTagName( 'body' )[ 0 ]
-        if( body.classList.contains( 'modal-open' ) ) {
-            body.classList.remove( 'modal-open' )
-            body.style.paddingRight = ""
-        } else {
-            body.classList.add( 'modal-open' )
-            body.style.paddingRight = "15px"
-        }
-        
-        //modal.style.display = 'block'
-    }
-
-    handleLogout() {
-        window.sessionStorage.removeItem( 'token' )
-    }
-
     render() {
         return (
-            <li id="menu-user-info" className="nav-item dropdown no-arrow">
-            <a  onClick={ this.handleMenu }  href={ "#" } className="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span className="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-              <img className="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
-            </a>
-            {/* <!-- Dropdown - User Information --> */}
-            <div id="div-user-info" className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-              <a className="dropdown-item" href="#">
-                <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                Profile
-              </a>
-              <a className="dropdown-item" href="#">
-                <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
-              </a>
-              <a className="dropdown-item" href="#">
-                <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
-              </a>
-              <div className="dropdown-divider"></div>
-              <a onClick={ this.modalOpen } id="logout-modal" className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
-              </a>
-            </div>
-          </li>
+          <Dropdown>
+          <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+            Custom toggle
+          </Dropdown.Toggle>
+      
+          <Dropdown.Menu as={CustomMenu}>
+            <Dropdown.Item eventKey="1">Red</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
+            <Dropdown.Item eventKey="3" active>
+              Orange
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         )
     }
 
