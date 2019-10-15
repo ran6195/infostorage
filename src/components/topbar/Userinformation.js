@@ -1,5 +1,6 @@
 import React from 'react'
-import { Dropdown , FormControl } from 'react-bootstrap'
+import { Dropdown } from 'react-bootstrap'
+import DropdownMenu from 'react-bootstrap/DropdownMenu';
 
 
 
@@ -19,9 +20,9 @@ class CustomToggle extends React.Component {
   render() {
     return (
       <li className="nav-item dropdown no-arrow">
-        <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a className="nav-link dropdown-toggle" href="/" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span className="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-          <img className="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+          <img className="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt=""/>
         </a>
       </li>
     );
@@ -49,17 +50,12 @@ class CustomMenu extends React.Component {
       'aria-labelledby': labeledBy,
     } = this.props;
 
+    console.log( this.props )
+
     const { value } = this.state;
 
     return (
       <div style={style} className={className} aria-labelledby={labeledBy}>
-        <FormControl
-          autoFocus
-          className="mx-3 my-2 w-auto"
-          placeholder="Type to filter..."
-          onChange={this.handleChange}
-          value={value}
-        />
         <ul className="list-unstyled">
           {React.Children.toArray(children).filter(
             child =>
@@ -69,7 +65,7 @@ class CustomMenu extends React.Component {
       </div>
     );
   }
-}
+} 
 
 
 export default class UserInformation extends React.Component {
@@ -80,15 +76,11 @@ export default class UserInformation extends React.Component {
           <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
             Custom toggle
           </Dropdown.Toggle>
-      
-          <Dropdown.Menu as={CustomMenu}>
-            <Dropdown.Item eventKey="1">Red</Dropdown.Item>
-            <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-            <Dropdown.Item eventKey="3" active>
-              Orange
-            </Dropdown.Item>
-            <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
-          </Dropdown.Menu>
+
+          <DropdownMenu as={CustomMenu}>
+            
+          </DropdownMenu>
+
         </Dropdown>
         )
     }

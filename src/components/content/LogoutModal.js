@@ -3,11 +3,6 @@ import React from 'react'
 
 export default class LogoutModal extends React.Component {
 
-    constructor( props ) {
-        super( props )
-    }
-
-
 
 
     render() {
