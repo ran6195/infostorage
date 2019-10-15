@@ -52,7 +52,7 @@ class CustomMenu extends React.Component {
     return (
       <div style={ style } className={ className } aria-labelledby={ labelledBy }>
         <ul className="list-unstyled">
-          {React.Children.toArray( children ).filter( child => !value || child.props.children.toLowerCase().startsWith( value ) ) }
+          {React.Children.toArray( children )}
         </ul>
       </div>
     )
@@ -64,20 +64,20 @@ class CustomMenu extends React.Component {
 function Slash() {
   return (
     <div className="container-fluid">
-<Dropdown>
-  <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-    Custom toggle
-  </Dropdown.Toggle>
+        <Dropdown>
+          <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+            Custom toggle
+          </Dropdown.Toggle>
 
-  <Dropdown.Menu as={CustomMenu} style={{ color: 'black' }}>
-    <Dropdown.Item eventKey="1">Red</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-    <Dropdown.Item eventKey="3" active>
-     Orange
-    </Dropdown.Item>
-    <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
+          <Dropdown.Menu as={CustomMenu} style={{ color: 'black' }}>
+            <Dropdown.Item eventKey="1" className="I">Red</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
+            <Dropdown.Item eventKey="3" active>
+            Orange
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
     </div>
   );
 }
