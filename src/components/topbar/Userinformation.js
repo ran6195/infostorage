@@ -21,7 +21,7 @@ class CustomToggle extends React.Component {
   render() {
     return (
       <li className="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" onClick={ this.handleClick }>
+        <a className="nav-link dropdown-toggle" href="#" onClick={ this.handleClick }>
           { this.props.children }
         </a>
       </li>
@@ -66,6 +66,18 @@ class CustomMenu extends React.Component {
 
 export default class UserInformation extends React.Component {
 
+    constructor( props , context ) {
+      super( props , context )
+
+      this.handleLogout = this.handleLogout.bind( this )
+    }
+
+    handleLogout( e ) {
+      e.preventDefault()
+      window.sessionStorage.removeItem( 'token' )
+      document.location.href = '/'
+    }
+
     render() {
         return (
           <Dropdown>
@@ -79,14 +91,14 @@ export default class UserInformation extends React.Component {
             <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Profile
             </Dropdown.Item>
             <Dropdown.Item eventKey="2">
-              <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Settings
+              <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Settings
             </Dropdown.Item>
             <Dropdown.Item eventKey="3">
-              <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>Activity Log
+              <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>Activity Log
             </Dropdown.Item>
-            <div class="dropdown-divider"></div>
-            <Dropdown.Item eventKey="3">
-              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
+            <div className="dropdown-divider"></div>
+            <Dropdown.Item eventKey="4" onClick={ this.handleLogout }>
+              <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
