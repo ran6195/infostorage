@@ -1,6 +1,9 @@
 import React from 'react'
 
+
 export default class LogoutModal extends React.Component {
+
+
 
     render() {
         return (
