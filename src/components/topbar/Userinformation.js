@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dropdown } from 'react-bootstrap'
-import DropdownMenu from 'react-bootstrap/DropdownMenu';
+
 
 
 
@@ -20,9 +20,11 @@ class CustomToggle extends React.Component {
 
   render() {
     return (
-      <a href="#" onClick={ this.handleClick }>
-        { this.props.children }
-      </a>
+      <li className="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" onClick={ this.handleClick }>
+          { this.props.children }
+        </a>
+      </li>
     )
   }
 
@@ -67,17 +69,25 @@ export default class UserInformation extends React.Component {
     render() {
         return (
           <Dropdown>
-          <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-            Custom toggle
-          </Dropdown.Toggle>
+            <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+              <span className="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+              <img className="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="" />
+            </Dropdown.Toggle>
 
-          <Dropdown.Menu as={CustomMenu} style={{ color: 'black' }}>
-            <Dropdown.Item eventKey="1" className="I">Red</Dropdown.Item>
-            <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-            <Dropdown.Item eventKey="3" active>
-            Orange
+          <Dropdown.Menu as={CustomMenu}>
+            <Dropdown.Item eventKey="1">
+            <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Profile
             </Dropdown.Item>
-            <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
+            <Dropdown.Item eventKey="2">
+              <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Settings
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3">
+              <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>Activity Log
+            </Dropdown.Item>
+            <div class="dropdown-divider"></div>
+            <Dropdown.Item eventKey="3">
+              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         )
