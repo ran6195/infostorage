@@ -55,7 +55,7 @@ class Sidebar extends React.Component {
                         <Heading titolo={ voce.titolo } key={ k++ }/>
                     )
                 break;
-
+ 
                 case "menu":
                         voci.push(
                             <ItemCollapsible 
