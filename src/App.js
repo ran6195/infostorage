@@ -23,6 +23,22 @@ const MyContext = React.createContext({
 
 class App extends React.Component {
 
+  constructor( ) {
+
+    super()
+
+    this.state = {
+      logged_in : false
+    }
+
+
+    this.handleLogout = this.handleLogout.bind( this )
+  }
+
+  handleLogout( e ) {
+    this.setState({ logged_in : false })
+  }
+
   render() {
 
     if( this.props.logged_in ) {
@@ -31,7 +47,7 @@ class App extends React.Component {
         <div id="wrapper">
             <Router>
               <Sidebar brand={ this.props.sidebar.brand } voci={ this.props.sidebar.voci }/>
-              <ContentWrapper />
+              <ContentWrapper handleLogout={ this.handleLogout }/>
             </Router>
             <LogoutModal />
         </div>
